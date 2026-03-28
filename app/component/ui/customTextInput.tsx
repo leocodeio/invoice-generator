@@ -8,12 +8,14 @@ type CustomInputProps = {
   label?: string;
   placeholder: string;
   variableName: string;
+  defaultValue?: string;
 };
 
 const CustomTextInput = ({
   label,
   placeholder,
   variableName,
+  defaultValue,
 }: CustomInputProps) => (
   <Controller
     render={({ field: { onChange, value } }) => (
@@ -30,7 +32,7 @@ const CustomTextInput = ({
       />
     )}
     name={variableName}
-    defaultValue={getInitialValue(variableName)}
+    defaultValue={getInitialValue(variableName, defaultValue)}
   />
 );
 

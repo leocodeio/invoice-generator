@@ -8,12 +8,14 @@ type CustomNumberProps = {
   label?: string;
   placeholder: string;
   variableName: string;
+  defaultValue?: string;
 };
 
 export const CustomNumberInput = ({
   label,
   placeholder,
   variableName,
+  defaultValue,
 }: CustomNumberProps) => (
   <Controller
     render={({ field: { onChange, value } }) => (
@@ -30,7 +32,7 @@ export const CustomNumberInput = ({
         }}
       />
     )}
-    defaultValue={getInitialValue(variableName)}
+    defaultValue={getInitialValue(variableName, defaultValue)}
     name={variableName}
   />
 );

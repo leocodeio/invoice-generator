@@ -69,7 +69,7 @@ const Home = () => {
             </Link>
             <a
               target="_blank"
-              href="https://github.com/pranavp10/invoice-generator"
+              href="https://github.com/harsha/invoice-generator"
               className="inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border bg-transparent hover:bg-neutral-100 hover:text-accent-foreground px-6 py-1.5 text-lg gap-2 border-dashed border-gray-400"
             >
               <svg
@@ -200,7 +200,7 @@ const Home = () => {
           <div className="border flex justify-center items-center w-10 h-10 border-dashed rounded-lg text-2xl border-gray-300">
             <a
               target="_blank"
-              href="https://github.com/pranavp10/invoice-generator"
+              href="https://github.com/harsha/invoice-generator"
             >
               <svg
                 width="15"
@@ -220,12 +220,12 @@ const Home = () => {
             </a>
           </div>
           <div className="border flex justify-center items-center w-10 h-10 border-dashed rounded-lg text-2xl border-gray-300">
-            <a target="_blank" href="https://www.linkedin.com/in/pranavp10/">
+            <a target="_blank" href="https://www.linkedin.com/in/harsha/">
               <Linkedin />
             </a>
           </div>
           <div className="border flex justify-center items-center w-10 h-10 border-dashed rounded-lg text-2xl border-gray-300">
-            <a target="_blank" href="https://twitter.com/ThatsPranav">
+            <a target="_blank" href="https://twitter.com/harsha">
               <Twitter />
             </a>
           </div>

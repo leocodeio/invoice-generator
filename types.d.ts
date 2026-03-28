@@ -43,12 +43,15 @@ interface InvoiceTerms {
 }
 
 interface PaymentDetails {
+  paymentMethod?: "bank" | "upi" | null;
   bankName?: string | null;
   accountNumber?: string | null;
   accountName?: string | null;
   routingCode?: string | null;
   swiftCode?: string | null;
   ifscCode?: string | null;
+  upiId?: string | null;
+  payableAmount?: number | null;
   currency?: string;
 }
 

@@ -7,8 +7,9 @@ export const YourDetailsForm = () => (
     <p className="text-2xl font-semibold pb-3">Your Details (From)</p>
     <CustomTextInput
       label="Email"
-      placeholder="e.g. pranav@prolab.sh"
+      placeholder="e.g. harsha@prolab.sh"
       variableName="yourEmail"
+      defaultValue="harsha@prolab.sh"
     />
     <p className="pb-10 pt-3 text-xs font-medium text-neutral-500">
       We&apos;ll fill the billing details automatically if we find the your.
@@ -16,8 +17,9 @@ export const YourDetailsForm = () => (
     <p className="pb-2 text-sm font-medium text-neutral-500">Billing details</p>
     <CustomTextInput
       label="Your Name"
-      placeholder="Pranav"
+      placeholder="Harsha"
       variableName="yourName"
+      defaultValue="Harsha"
     />
     <ImageInput label="Logo" variableName="yourLogo" />
     <CustomTextInput

@@ -1,4 +1,5 @@
 import { useGetValue, useItemParams } from "@/app/hooks/useGetValue";
+import { calculatePayableAmount } from "@/lib/payment";
 
 export const useData = () => {
   const yourEmail = useGetValue("yourEmail");
@@ -32,6 +33,9 @@ export const useData = () => {
   const routingCode = useGetValue("routingCode");
   const swiftCode = useGetValue("swiftCode");
   const ifscCode = useGetValue("ifscCode");
+  const paymentMethod =
+    (useGetValue("paymentMethod", "bank") as "bank" | "upi") || "bank";
+  const upiId = useGetValue("upiId");
 
   const invoiceNumber = useGetValue("invoiceNo");
   const issueDate = useGetValue("issueDate");
@@ -54,12 +58,15 @@ export const useData = () => {
   };
 
   const paymentDetails = {
+    paymentMethod,
     bankName: bankName,
     accountNumber: accountNumber,
     accountName: accountName,
     routingCode: routingCode,
     swiftCode: swiftCode,
     ifscCode: ifscCode,
+    upiId,
+    payableAmount: calculatePayableAmount({ items, discount, taxRate }),
     currency
   };
 
