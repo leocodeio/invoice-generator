@@ -7,14 +7,14 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, label, ...props }, ref) => (
     <div
-      className={`flex  items-center relative ${
-        label ? "h-[52px]" : "h-[42px]"
-      }`}
+      className={`group relative flex items-center gap-3 rounded-[0.375rem] border border-[rgba(var(--outline-variant),0.15)] bg-[color:var(--surface-container-low)] px-3 focus-within:border-[color:var(--primary)] ${
+        label ? "h-[56px]" : "h-[46px]"
+      } ${className || ""}`}
     >
       {label && (
         <label
           htmlFor={label}
-          className="block text-sm font-medium leading-6 text-gray-900 whitespace-nowrap"
+          className="editorial-label whitespace-nowrap"
         >
           {label}
         </label>
@@ -25,13 +25,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {...props}
         name={label}
         id={label}
-        className={`peer block w-full border-0 py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6 ${
+        className={`peer block w-full border-0 bg-transparent py-1.5 text-sm text-[color:var(--on-surface)] outline-none focus:ring-0 ${
           label ? "text-right" : "p-0"
-        }  placeholder:text-neutral-700/40 placeholder:font-medium caret-orange-500`}
-      />
-      <div
-        className="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-hover:border-neutral-400 peer-focus:border-t peer-focus:border-orange-500 border-dashed"
-        aria-hidden="true"
+        } placeholder:font-medium placeholder:text-[color:var(--on-surface-variant)]/70`}
       />
     </div>
   )

@@ -6,25 +6,27 @@ type StepButtonProps = {
   isPrevious?: boolean;
   title: string;
   step: string;
+  onStepChange?: (title: string) => void;
 };
 
-const StepButton = ({ isPrevious, title, step }: StepButtonProps) => (
+const StepButton = ({ isPrevious, title, step, onStepChange }: StepButtonProps) => (
   <Controller
     render={({ field: { onChange } }) => (
       <div className="mt-3 w-full flex">
         {isPrevious ? (
           <button
-            className="flex-1  hover:bg-neutral-100 rounded-md p-3"
+            className="surface-high flex-1 rounded-md p-3 hover:bg-[color:var(--surface-container-highest)]"
             onClick={() => {
               localStorage.setItem("step", step);
               onChange(step);
+              onStepChange?.(title);
             }}
           >
             <div className="flex gap-2  items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
-                className="w-3 h-3 text-neutral-500"
+                className="h-3 w-3 text-[color:var(--on-surface-variant)]"
                 fill="currentColor"
               >
                 <path
@@ -33,25 +35,30 @@ const StepButton = ({ isPrevious, title, step }: StepButtonProps) => (
                   clipRule="evenodd"
                 />
               </svg>
-              <p className="text-sm font-medium text-neutral-500 ">Back </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[color:var(--on-surface-variant)]">
+                Back
+              </p>
             </div>
-            <p className="font-medium text-left">{title}</p>
+            <p className="text-sm font-medium text-left text-[color:var(--on-surface)]">{title}</p>
           </button>
         ) : (
           <button
             onClick={() => {
               localStorage.setItem("step", step);
               onChange(step);
+              onStepChange?.(title);
             }}
-            className="flex-1  hover:bg-neutral-100 rounded-md p-3"
+            className="surface-high flex-1 rounded-md p-3 hover:bg-[color:var(--surface-container-highest)]"
           >
             <div className="flex gap-2 justify-end items-center">
-              <p className="text-sm font-medium text-neutral-500 ">Next </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[color:var(--on-surface-variant)]">
+                Next
+              </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
                 fill="currentColor"
-                className="w-3 h-3 text-neutral-500"
+                className="h-3 w-3 text-[color:var(--on-surface-variant)]"
               >
                 <path
                   fillRule="evenodd"
@@ -60,7 +67,7 @@ const StepButton = ({ isPrevious, title, step }: StepButtonProps) => (
                 />
               </svg>
             </div>
-            <p className="font-medium text-right">{title}</p>
+            <p className="text-sm font-medium text-right text-[color:var(--on-surface)]">{title}</p>
           </button>
         )}
       </div>

@@ -28,13 +28,13 @@ export const ImageInput = ({ label, variableName }: CustomNumberProps) => {
     <Controller
       render={({ field: { onChange, value } }) => (
         <div
-          className="flex items-center relative justify-between h-[52px] cursor-pointer"
+          className="relative flex h-[56px] cursor-pointer items-center justify-between rounded-[0.375rem] border border-[rgba(var(--outline-variant),0.15)] bg-[color:var(--surface-container-low)] px-3"
           onClick={handleButtonClick}
         >
           {label && (
             <label
               htmlFor={label}
-              className="block text-sm font-medium leading-6 text-gray-900 whitespace-nowrap"
+              className="editorial-label whitespace-nowrap"
             >
               {label}
             </label>
@@ -42,11 +42,11 @@ export const ImageInput = ({ label, variableName }: CustomNumberProps) => {
           {value ? (
             <img
               src={value}
-              className="h-8 mr-3 rounded-md p-1 hover:bg-neutral-200"
+              className="mr-3 h-8 rounded-md p-1 hover:bg-[color:var(--surface-container-high)]"
               alt="company logo"
             />
           ) : (
-            <button className="text-neutral-500/70 border rounded-full p-1.5 border-dashed">
+            <button className="rounded-full border border-[rgba(var(--outline-variant),0.15)] bg-[color:var(--surface-container-high)] p-1.5 text-[color:var(--on-surface-variant)]">
               <Plus className="w-4 h-4" />
             </button>
           )}
@@ -66,13 +66,9 @@ export const ImageInput = ({ label, variableName }: CustomNumberProps) => {
                 reader.readAsDataURL(file);
               }
             }}
-            className={`peer w-full border-0 py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6 hidden ${
+            className={`peer hidden w-full border-0 bg-transparent py-1.5 text-sm text-[color:var(--on-surface)] focus:ring-0 ${
               label ? "text-right" : "p-0"
-            }  placeholder:text-neutral-700/40 placeholder:font-medium caret-orange-500`}
-          />
-          <div
-            className="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-hover:border-neutral-400 peer-focus:border-t peer-focus:border-orange-500 border-dashed"
-            aria-hidden="true"
+            } placeholder:font-medium placeholder:text-[color:var(--on-surface-variant)]`}
           />
         </div>
       )}

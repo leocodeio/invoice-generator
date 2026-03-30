@@ -21,10 +21,11 @@ export const PaymentDetailsForm = () => {
   };
 
   return (
-    <div className="pt-24">
-      <p className="text-2xl font-semibold pb-3">Payment Details</p>
-      <div className="pb-5">
-        <p className="pb-3 font-medium text-sm text-neutral-500">Payment method</p>
+    <div className="pt-2 md:pt-4">
+      <p className="editorial-label pb-2">Section Four</p>
+      <p className="editorial-headline pb-4">Payment Details</p>
+      <div className="pb-6">
+        <p className="editorial-label pb-3">Payment Method</p>
         <div className="grid grid-cols-2 gap-2">
           <Button
             type="button"
@@ -32,7 +33,7 @@ export const PaymentDetailsForm = () => {
             className={cn(
               "h-10",
               paymentMethod !== "bank" &&
-                "border-dashed border-gray-300 hover:border-gray-400"
+                "border-[rgba(var(--outline-variant),0.15)]"
             )}
             onClick={() => onPaymentMethodChange("bank")}
           >
@@ -44,7 +45,7 @@ export const PaymentDetailsForm = () => {
             className={cn(
               "h-10",
               paymentMethod !== "upi" &&
-                "border-dashed border-gray-300 hover:border-gray-400"
+                "border-[rgba(var(--outline-variant),0.15)]"
             )}
             onClick={() => onPaymentMethodChange("upi")}
           >
@@ -69,9 +70,9 @@ export const PaymentDetailsForm = () => {
           />
           <CustomTextInput
             label="Account Name"
-            placeholder="Harsha"
+            placeholder="Nidhie"
             variableName="accountName"
-            defaultValue="Harsha"
+            defaultValue="Nidhie"
           />
           <CustomTextInput
             label="IFSC code"
@@ -96,17 +97,17 @@ export const PaymentDetailsForm = () => {
         <>
           <CustomTextInput
             label="UPI ID"
-            placeholder="harsha@upi"
+            placeholder="nidhie@upi"
             variableName="upiId"
-            defaultValue="harsha@upi"
+            defaultValue="nidhie@upi"
           />
           <CustomTextInput
             label="Payee name"
-            placeholder="Harsha"
+            placeholder="Nidhie"
             variableName="accountName"
-            defaultValue="Harsha"
+            defaultValue="Nidhie"
           />
-          <p className="text-xs text-neutral-500 pt-4">
+          <p className="editorial-body pt-4">
             A QR code with this UPI ID and invoice amount will appear in the invoice.
           </p>
         </>

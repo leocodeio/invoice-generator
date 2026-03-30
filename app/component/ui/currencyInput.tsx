@@ -30,14 +30,14 @@ const CurrencyInput = () => {
         )?.details;
 
         return (
-          <div className="flex group items-center  relative h-[52px]">
+          <div className="relative flex h-[56px] items-center rounded-[0.375rem] border border-[rgba(var(--outline-variant),0.15)] bg-[color:var(--surface-container-low)] px-3">
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild className="w-full">
-                <button className="flex gap-2 items-center justify-between w-full">
-                  <label className="block text-sm font-medium leading-6 text-gray-900 whitespace-nowrap">
+                <button className="flex w-full items-center justify-between gap-2">
+                  <label className="editorial-label whitespace-nowrap">
                     Currency
                   </label>
-                  <div className="flex gap-1.5 bg-neutral-100 text-sm pl-2 pr-2.5 rounded-full py-0.5 items-center">
+                  <div className="flex items-center gap-1.5 rounded-full bg-[color:var(--surface-container-high)] px-2 py-0.5 pr-2.5 text-sm text-[color:var(--on-surface)]">
                     {currencyDetails && (
                       <currencyDetails.icon className="w-4 h-4 rounded-full" />
                     )}
@@ -51,7 +51,7 @@ const CurrencyInput = () => {
                 <Command className="w-full">
                   <CommandInput
                     placeholder="Search currency..."
-                    className="peer block w-full border-0 py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6 placeholder:text-neutral-700/40 placeholder:font-medium caret-orange-500"
+                    className="peer block w-full border-0 py-1.5 text-sm text-[color:var(--on-surface)] focus:ring-0 placeholder:font-medium placeholder:text-[color:var(--on-surface-variant)]"
                   />
                   <CommandEmpty>No framework found.</CommandEmpty>
                   <CommandGroup className="max-h-96 overflow-y-auto scrollbar-hide">
@@ -70,11 +70,11 @@ const CurrencyInput = () => {
                       >
                         <div className="flex gap-2 justify-between items-center w-full">
                           <div className="flex gap-2 items-center">
-                            <currency.details.icon className="w-6 h-6 rounded-full border" />
+                            <currency.details.icon className="w-6 h-6 rounded-full" />
                             <p className="font-medium">
                               {currency.details.currencyName}
                             </p>
-                            <p className="font-medium text-neutral-500">
+                            <p className="font-medium text-[color:var(--on-surface-variant)]">
                               {currency.details.currencyShortForm}
                             </p>
                           </div>
@@ -83,7 +83,7 @@ const CurrencyInput = () => {
                               "h-6 w-6 rounded-full",
                               value.toLowerCase() ===
                                 currency.value.toLowerCase()
-                                ? "opacity-100 bg-orange-500 text-white"
+                                ? "opacity-100 bg-[color:var(--primary)] text-[color:var(--on-primary)]"
                                 : "opacity-0"
                             )}
                           />
@@ -94,12 +94,9 @@ const CurrencyInput = () => {
                 </Command>
               </PopoverContent>
             </Popover>
-            <div
-              className={`absolute inset-x-0 bottom-0 border-t border-gray-300  group-focus:border-t border-dashed ${
-                open ? "border-orange-500" : "group-hover:border-neutral-400"
-              }`}
-              aria-hidden="true"
-            />
+            {open && (
+              <div className="pointer-events-none absolute inset-0 rounded-[0.375rem] border border-[color:var(--primary)]" />
+            )}
           </div>
         );
       }}

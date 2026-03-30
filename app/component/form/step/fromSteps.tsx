@@ -3,17 +3,22 @@ import StepButton from "@/app/component/ui/stepButton";
 import { useGetValue } from "@/app/hooks/useGetValue";
 import { getInitialValue } from "@/lib/getInitialValue";
 
-export const FormSteps = () => {
+type FormStepsProps = {
+  onStepLabelChange?: (title: string) => void;
+};
+
+export const FormSteps = ({ onStepLabelChange }: FormStepsProps) => {
   const stepValue = useGetValue("step", getInitialValue("step", "1"));
   const stepValueDetails = getStepsDetails(stepValue);
 
   return (
-    <div className="flex gap-9 justify-between">
+    <div className="flex gap-3 justify-between">
       {stepValueDetails.previous ? (
         <StepButton
           step={stepValueDetails.previous.step}
           title={stepValueDetails.previous.title}
           isPrevious
+          onStepChange={onStepLabelChange}
         />
       ) : (
         <div className="flex-1" />
@@ -22,6 +27,7 @@ export const FormSteps = () => {
         <StepButton
           step={stepValueDetails.nextStep.step}
           title={stepValueDetails.nextStep.title}
+          onStepChange={onStepLabelChange}
         />
       ) : (
         <div className="flex-1" />
@@ -44,13 +50,13 @@ const step2 = {
     step: "1",
   },
   nextStep: {
-    title: "Invoice details",
+    title: "Invoice Details",
     step: "3",
   },
 };
 const step3 = {
   previous: {
-    title: "Your details",
+    title: "Your Details",
     step: "2",
   },
   nextStep: {
@@ -60,7 +66,7 @@ const step3 = {
 };
 const step4 = {
   previous: {
-    title: "Invoice details",
+    title: "Invoice Details",
     step: "3",
   },
   nextStep: {
@@ -75,14 +81,14 @@ const step5 = {
     step: "4",
   },
   nextStep: {
-    title: "Review & download",
+    title: "Review & Download",
     step: "6",
   },
 };
 
 const step6 = {
   previous: {
-    title: "Invoice terms",
+    title: "Invoice Terms",
     step: "5",
   },
   nextStep: null,

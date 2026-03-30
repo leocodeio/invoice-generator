@@ -1,9 +1,23 @@
 "use client";
+
 import { PreviewDetails } from "@/app/component/form/previewDetails";
 import { useData } from "@/app/hooks/useData";
 import { useFormContext } from "react-hook-form";
 
-export const UserDataPreview = () => {
+type UserDataPreviewProps = {
+  onStepLabelChange?: (title: string) => void;
+};
+
+const stepTitleMap: Record<string, string> = {
+  "1": "Your Details",
+  "2": "Company Details",
+  "3": "Invoice Items",
+  "4": "Payment Details",
+  "5": "Invoice Terms",
+  "6": "Review & Download",
+};
+
+export const UserDataPreview = ({ onStepLabelChange }: UserDataPreviewProps) => {
   const {
     companyDetails,
     invoiceDetails,
@@ -16,6 +30,7 @@ export const UserDataPreview = () => {
   const onClick = (step: string) => {
     setValue("step", step);
     localStorage.setItem("step", step);
+    onStepLabelChange?.(stepTitleMap[step] || stepTitleMap["1"]);
   };
 
   return (

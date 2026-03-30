@@ -36,7 +36,7 @@ bun run dev
 
 Create `.env.local` file similar to `.env.example`.
 
-[Live Invoice Generator Link](https://invoice-generator.prolab.sh/)
+[Live Invoice Generator Link](https://invoice-generator.streakdash.sh/)
 
 ### License
 

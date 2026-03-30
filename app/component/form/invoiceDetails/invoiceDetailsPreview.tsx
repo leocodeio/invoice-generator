@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { currencyList } from "@/lib/currency";
-import { ChevronDown } from "lucide-react";
 
 export const InvoiceDetailsPreview: React.FC<
   InvoiceItemDetails & { onClick?: (step: string) => void }
@@ -17,36 +16,28 @@ export const InvoiceDetailsPreview: React.FC<
 
   return (
     <div
-      className="group cursor-pointer relative"
+      className="cursor-pointer bg-[color:var(--surface-container-lowest)]"
       onClick={() => onClick && onClick("3")}
     >
-      {!!onClick && (
-        <>
-          <ChevronDown className="animate-pulse w-5 h-5 text-orange-500 rotate-[135deg] group-hover:block hidden absolute top-0 left-0" />
-          <ChevronDown className="animate-pulse w-5 h-5 text-orange-500 -rotate-[135deg] group-hover:block hidden absolute top-0 right-0" />
-          <ChevronDown className="animate-pulse w-5 h-5 text-orange-500 rotate-45 group-hover:block hidden absolute bottom-0 left-0" />
-          <ChevronDown className="animate-pulse w-5 h-5 text-orange-500 -rotate-45 group-hover:block hidden absolute bottom-0 right-0 " />
-        </>
-      )}
       <div className="grid grid-cols-2 items-center">
         <div className="py-4 px-10">
-          <p className="text-[11px] text-neutral-400 font-medium uppercase">
+          <p className="editorial-label">
             Description
           </p>
         </div>
         <div className="py-4 px-10 grid grid-cols-3 items-center">
           <div>
-            <p className="text-[11px] text-neutral-400 font-medium uppercase">
+            <p className="editorial-label">
               QTY
             </p>
           </div>
           <div>
-            <p className="text-[11px] text-neutral-400 font-medium uppercase">
+            <p className="editorial-label">
               Price
             </p>
           </div>
           <div>
-            <p className="text-[11px] text-neutral-400 font-medium uppercase text-right">
+            <p className="editorial-label text-right">
               Amount
             </p>
           </div>
@@ -54,22 +45,22 @@ export const InvoiceDetailsPreview: React.FC<
       </div>
       {items.map(({ itemDescription, amount, qty }, index) => (
         <div
-          className={`grid grid-cols-2 items-center border-b ${
-            index === 0 ? "border-t" : ""
-          } border-dashed mx-10 py-3`}
+          className={`mx-10 grid grid-cols-2 items-center py-3 ${
+            index % 2 === 0 ? "bg-transparent" : "bg-[color:var(--surface-container-low)]"
+          }`}
           key={index}
         >
-          <p className="flex truncate text-xs font-medium text-gray-600">
+          <p className="flex truncate px-2 text-xs font-medium text-[color:var(--on-surface-variant)]">
             {itemDescription}
           </p>
           <div className="pl-10 grid grid-cols-3 items-center">
-            <p className="flex truncate text-xs font-medium text-gray-600">
+            <p className="flex truncate text-xs font-medium text-[color:var(--on-surface-variant)]">
               {qty || "-"}
             </p>
-            <p className="flex truncate text-xs font-medium text-gray-600">
+            <p className="flex truncate text-xs font-medium text-[color:var(--on-surface-variant)]">
               {amount ? addCommasToNumber(amount) : ""}
             </p>
-            <p className="flex items-end w-full text-xs font-medium text-gray-600 text-right justify-end">
+            <p className="flex w-full items-end justify-end text-right text-xs font-medium text-[color:var(--on-surface-variant)]">
               {currencyDetails?.currencySymbol}
               {amount ? addCommasToNumber((qty ? qty : 1) * amount) : ""}
             </p>
@@ -79,10 +70,10 @@ export const InvoiceDetailsPreview: React.FC<
       <div className="grid grid-cols-2">
         {note ? (
           <div className="pt-6 pb-4">
-            <p className="flex truncate text-xs font-medium text-neutral-400 pb-1 px-10">
+            <p className="editorial-label px-10 pb-1">
               Note
             </p>
-            <p className="text-xs font-medium text-neutral-400 px-10 break-words">
+            <p className="break-words px-10 text-xs font-medium text-[color:var(--on-surface-variant)]">
               {note}
             </p>
           </div>
@@ -90,44 +81,44 @@ export const InvoiceDetailsPreview: React.FC<
           <div />
         )}
         <div>
-          <div className="flex justify-between items-center mx-10 border-b border-dashed py-3">
-            <p className="flex truncate text-xs font-medium text-gray-600">
+          <div className="mx-10 flex items-center justify-between bg-[color:var(--surface-container-low)] py-3 px-2">
+            <p className="flex truncate text-xs font-medium text-[color:var(--on-surface-variant)]">
               Subtotal
             </p>
-            <p className="flex truncate text-xs font-medium text-gray-600">
+            <p className="flex truncate text-xs font-medium text-[color:var(--on-surface-variant)]">
               {currencyDetails?.currencySymbol}
               {addCommasToNumber(subtotal)}
             </p>
           </div>
           {discount && (
-            <div className="flex justify-between items-center mx-10 border-b border-dashed py-3">
-              <p className="flex truncate text-xs font-medium text-gray-600">
+            <div className="mx-10 mt-2 flex items-center justify-between bg-[color:var(--surface-container-low)] py-3 px-2">
+              <p className="flex truncate text-xs font-medium text-[color:var(--on-surface-variant)]">
                 Discount
               </p>
-              <p className="flex truncate text-xs font-medium text-gray-600">
+              <p className="flex truncate text-xs font-medium text-[color:var(--on-surface-variant)]">
                 {currencyDetails?.currencySymbol}
                 {discount ? addCommasToNumber(+discount) : ""}
               </p>
             </div>
           )}
           {taxRate && (
-            <div className="flex justify-between items-center mx-10 border-b border-dashed py-3">
-              <p className="flex truncate text-xs font-medium text-gray-600">
+            <div className="mx-10 mt-2 flex items-center justify-between bg-[color:var(--surface-container-low)] py-3 px-2">
+              <p className="flex truncate text-xs font-medium text-[color:var(--on-surface-variant)]">
                 Tax ({taxRate})%
               </p>
-              <p className="flex truncate text-xs font-medium text-gray-600">
+              <p className="flex truncate text-xs font-medium text-[color:var(--on-surface-variant)]">
                 {currencyDetails?.currencySymbol}
                 {addCommasToNumber(+taxAmount.toFixed(2))}
               </p>
             </div>
           )}
-          <div className="flex justify-between items-center px-10 py-3">
+          <div className="mt-2 flex items-center justify-between bg-[color:var(--surface-container-high)] px-10 py-3">
             <div>
-              <p className="flex truncate text-xs font-medium text-gray-600">
+              <p className="flex truncate text-xs font-medium text-[color:var(--on-surface)]">
                 Amount
               </p>
             </div>
-            <p className="flex truncate text-md font-medium">
+            <p className="flex truncate text-base font-semibold text-[color:var(--on-surface)]">
               {currencyDetails?.currencySymbol}
               {addCommasToNumber(totalAmount)}
             </p>

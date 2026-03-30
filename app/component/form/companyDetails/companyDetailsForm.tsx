@@ -3,20 +3,21 @@ import CustomNumberInput from "@/app/component/ui/customNumberInput";
 import ImageInput from "@/app/component/ui/imageInput";
 
 export const CompanyDetailsForm = () => (
-  <div className="pt-24">
-    <p className="text-2xl font-semibold pb-3">Company Details (To)</p>
+  <div className="pt-2 md:pt-4">
+    <p className="editorial-label pb-2">Section Two</p>
+    <p className="editorial-headline pb-3">Company Details (To)</p>
     <CustomTextInput
       label="Email"
-      placeholder="e.g. harsha@prolab.sh"
+      placeholder="e.g. nidhie@streakdash.sh"
       variableName="email"
     />
-    <p className="pb-10 pt-3 text-xs font-medium text-neutral-500">
+    <p className="editorial-body pb-8 pt-3">
       We&apos;ll fill the billing details automatically if we find the company.
     </p>
-    <p className="pb-2 text-sm font-medium text-neutral-500">Billing details</p>
+    <p className="editorial-label pb-3">Billing Details</p>
     <CustomTextInput
       label="Company name"
-      placeholder="Prolab Inc"
+      placeholder="Streakdash Inc"
       variableName="companyName"
     />
     <ImageInput label="Logo" variableName="companyLogo" />

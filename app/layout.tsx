@@ -4,7 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import Script from "next/script";
 
 export const viewport: Viewport = {
-  themeColor: "#f97316",
+  themeColor: "#f9f9ff",
   width: "device-width",
   initialScale: 1,
 };
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@harsha",
-    creator: "@harsha",
+    site: "@nidhie",
+    creator: "@nidhie",
   },
 };
 
@@ -72,11 +72,11 @@ export default function RootLayout({
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f97316" />
-        <meta name="msapplication-TileColor" content="#f97316" />
-        <meta name="theme-color" content="#f97316" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1b1b1b" />
+        <meta name="msapplication-TileColor" content="#f9f9ff" />
+        <meta name="theme-color" content="#f9f9ff" />
       </head>
-      <body className={`${GeistSans.className}`}>{children}</body>
+      <body className={`${GeistSans.className} antialiased`}>{children}</body>
     </html>
   );
 }

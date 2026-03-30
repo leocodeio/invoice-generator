@@ -5,21 +5,21 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-[0.375rem] text-sm font-medium transition-all duration-300 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--primary)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-orange-500 text-slate-50 hover:bg-orange-500/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
+          "bg-[linear-gradient(135deg,var(--primary),var(--primary-container))] text-[color:var(--on-primary)] hover:brightness-110",
         destructive:
-          "bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
+          "bg-[#8a243d] text-white hover:bg-[#701f33]",
         outline:
-          "border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+          "border border-[rgba(var(--outline-variant),0.15)] bg-[color:var(--surface-container-low)] text-[color:var(--on-surface)] hover:bg-[color:var(--surface-container-highest)]",
         secondary:
-          "bg-slate-100 text-slate-900 hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
+          "bg-[color:var(--surface-container-high)] text-[color:var(--on-surface)] hover:bg-[color:var(--surface-container-highest)]",
         ghost:
-          "hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50",
-        link: "text-slate-900 underline-offset-4 hover:underline dark:text-slate-50",
+          "text-[color:var(--on-surface)] hover:bg-[color:var(--surface-container-low)]",
+        link: "text-[color:var(--on-surface)] underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",

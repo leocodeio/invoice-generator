@@ -32,10 +32,11 @@ export const DownloadInvoiceButton = () => {
   }, [status]);
 
   return (
-    <div className="flex h-[calc(100vh-208px)] justify-center items-center">
-      <div>
-        <h1 className="text-5xl font-semibold pb-6">Your invoice is ready</h1>
-        <p className="text-neutral-500 text-xl pb-7">
+    <div className="flex h-[calc(100vh-208px)] items-center justify-center">
+      <div className="surface-low rounded-2xl p-8 md:p-10">
+        <p className="editorial-label pb-3">Final Step</p>
+        <h1 className="editorial-headline pb-4">Your invoice is ready</h1>
+        <p className="editorial-body pb-7">
           Please review the details carefully before downloading your invoice.
         </p>
         <Button
@@ -87,7 +88,7 @@ export const DownloadInvoiceButton = () => {
             }
           }}
           type="button"
-          className="w-full h-12 rounded-lg text-lg"
+          className="h-12 w-full rounded-md text-base"
         >
           {status === "not-downloaded" && (
             <>
